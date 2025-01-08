@@ -1,0 +1,25 @@
+<h2 class="text-2xl font-bold text-gray-800 mb-4">Step 2: Additional Information</h2>
+
+<%= form_with model: @user, url: user_path(@user), method: :patch, local: false, class: "space-y-6" do |form| %>
+  <!-- Renderiza os erros -->
+  <%= render 'users/errors' %>
+
+  <!-- Campo para idade -->
+  <div class="flex flex-col">
+    <%= form.label :age, "Age", class: "text-sm font-medium text-gray-700" %>
+    <%= form.number_field :age, placeholder: "Enter your age", min: 0, class: "mt-1 block w-full rounded-md border-gray-300 shadow-sm border p-2  focus:ring-opacity-50" %>
+  </div>
+
+  <!-- Campo oculto para o step -->
+  <%= form.hidden_field :step, value: 2 %>
+
+  <!-- Botão de submit -->
+  <div class="flex justify-end space-x-4">
+    <%= form.submit "Next", data: { turbo_method: :patch, turbo_stream: true, turbo_frame: "user_form" }, class: "px-4 py-2 bg-blue-600 text-white text-sm font-medium rounded-md shadow hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500" %>
+  </div>
+<% end %>
+
+<!-- Link para voltar -->
+<div class="mt-4">
+  <%= link_to "Back", update_step_user_path(@user, step: 1), data: { turbo_method: :patch, turbo_stream: true }, class: "text-sm text-blue-600 hover:underline" %>
+</div>

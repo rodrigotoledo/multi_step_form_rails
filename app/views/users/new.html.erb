@@ -1,0 +1,5 @@
+<h1 class="text-3xl font-extrabold text-gray-800 mb-6">Create New User</h1>
+
+<%= turbo_frame_tag "user_form", class: "bg-white shadow rounded-lg p-6" do %>
+  <%= render "users/steps/step_1" %>
+<% end %>

@@ -1,0 +1,33 @@
+<div class="max-w-4xl mx-auto bg-white p-6">
+  <h1 class="text-3xl font-extrabold text-gray-800 mb-6">User Details</h1>
+  
+  <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+    <!-- Nome -->
+    <div>
+      <h2 class="text-lg font-medium text-gray-700">Name</h2>
+      <p class="text-gray-900 text-lg"><%= @user.name %></p>
+    </div>
+    
+    <!-- Email -->
+    <div>
+      <h2 class="text-lg font-medium text-gray-700">Email</h2>
+      <p class="text-gray-900 text-lg"><%= @user.email %></p>
+    </div>
+    
+    <!-- Idade -->
+    <% if @user.age.present? %>
+      <div>
+        <h2 class="text-lg font-medium text-gray-700">Age</h2>
+        <p class="text-gray-900 text-lg"><%= @user.age %></p>
+      </div>
+    <% end %>
+
+    <!-- Endereço -->
+    <% if @user.address.present? %>
+      <div class="md:col-span-2">
+        <h2 class="text-lg font-medium text-gray-700">Address</h2>
+        <p class="text-gray-900 text-lg"><%= @user.address %></p>
+      </div>
+    <% end %>
+  </div>
+</div>
